@@ -53,7 +53,7 @@ export default function Home() {
             component: GlassMorphism,
         },
         clipPath: {
-            id: "clippath",
+            id: "clipPath",
             name: "Clip Path Generator",
             icon: Scissors,
             component: ClipPath,
