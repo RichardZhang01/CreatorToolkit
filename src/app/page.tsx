@@ -6,7 +6,6 @@ import {
     Upload,
     Droplets,
     Volume2,
-    Copy,
     ChevronsRight,
     MoveHorizontal,
 } from "lucide-react";
@@ -14,7 +13,7 @@ import {
 import PaletteExtractor from "@/components/PaletteExtractor";
 
 export default function Home() {
-    type ToolKey = "palette" | "gradient" | "glassMorphism" | "tts";
+    type ToolKey = "palette" | "gradient" | "glassMorphism" | "clippath" | "tts";
     const [activeTool, setActiveTool] = useState<ToolKey>("palette");
 
     const tools: Record<
