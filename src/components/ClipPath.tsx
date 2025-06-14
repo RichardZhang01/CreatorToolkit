@@ -113,6 +113,6 @@ const ClipPath = () => {
             </div>
         </div>
     );
-}
+};
 
 export default ClipPath;

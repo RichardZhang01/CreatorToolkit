@@ -87,6 +87,6 @@ const GradientGenerator = () => {
             </div>
         </div>
     );
-}
+};
 
 export default GradientGenerator;

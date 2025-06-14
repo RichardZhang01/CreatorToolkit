@@ -10,47 +10,43 @@ const PaletteExtractor = () => {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = event.target.files;
-
-        if (!files || files.length === 0) {
-            setError("Please select an image file.");
-            return;
-        }
-        const file = files[0];
+        const file = event.target.files?.[0];
 
         if (file) {
             const reader = new FileReader();
             reader.onload = (e) => {
                 if (e.target && typeof e.target.result === "string") {
                     setImageUrl(e.target.result);
-                    setError('')
+                    setError("");
                     extractColors(e.target.result);
                 }
             };
             reader.readAsDataURL(file);
         }
-    }
+    };
 
     const extractColors = (imgSrc: string) => {
         setLoading(true);
         setColors([]);
         const img = new Image();
-        img.crossOrigin = "Anonymous"; 
+        img.crossOrigin = "Anonymous";
         img.src = imgSrc;
         img.onload = () => {
             const colors = getColors(img);
             if (colors.length === 0) {
-                setError("Could not extract colors. Please try a different image.");
+                setError(
+                    "Could not extract colors. Please try a different image."
+                );
             }
             setColors(colors);
             setLoading(false);
-        }
+        };
 
         img.onerror = () => {
             setLoading(false);
             setError("Could not load image. Please try a different image.");
-        }
-    }
+        };
+    };
 
     const handleCopy = (color: string) => {
         const textArea = document.createElement("textarea");
@@ -68,7 +64,7 @@ const PaletteExtractor = () => {
                 colorElement.innerText = originalText;
             }, 1500);
         }
-    }
+    };
 
     return (
         <div>
@@ -83,7 +79,9 @@ const PaletteExtractor = () => {
                 className="hidden"
             />
             <button
-                onClick={() => fileInputRef.current && fileInputRef.current.click()}
+                onClick={() =>
+                    fileInputRef.current && fileInputRef.current.click()
+                }
                 className="w-full flex justify-center items-center gap-3 p-4 mb-6 bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-semibold transition-all shadow-lg"
             >
                 <Upload className="w-6 h-6" />
@@ -143,6 +141,6 @@ const PaletteExtractor = () => {
             </div>
         </div>
     );
-}
+};
 
 export default PaletteExtractor;

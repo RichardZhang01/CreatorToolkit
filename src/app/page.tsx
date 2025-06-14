@@ -14,13 +14,14 @@ import PaletteExtractor from "@/components/PaletteExtractor";
 import GradientGenerator from "@/components/GradientGenerator";
 import GlassMorphism from "@/components/GlassMorphism";
 import ClipPath from "@/components/ClipPath";
+import TextToSpeech from "@/components/TextToSpeech";
 
 export default function Home() {
     type ToolKey =
         | "palette"
         | "gradient"
         | "glassMorphism"
-        | "clippath"
+        | "clipPath"
         | "tts";
     const [activeTool, setActiveTool] = useState<ToolKey>("palette");
 
@@ -51,11 +52,17 @@ export default function Home() {
             icon: MoveHorizontal,
             component: GlassMorphism,
         },
-        clippath: {
+        clipPath: {
             id: "clippath",
             name: "Clip Path Generator",
             icon: Scissors,
             component: ClipPath,
+        },
+        tts: {
+            id: "tts",
+            name: "Text to Speech",
+            icon: Volume2,
+            component: TextToSpeech,
         },
     };
 
