@@ -18,7 +18,7 @@ const CopyCode = ({ code }: CopyTextProps) => {
         setCopied(true);
         setTimeout(() => {
             setCopied(false);
-        }, 2000);
+        }, 1500);
     };
 
     return (

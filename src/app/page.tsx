@@ -5,15 +5,23 @@ import {
     Palette,
     Droplets,
     Volume2,
+    Scissors,
     ChevronsRight,
     MoveHorizontal,
 } from "lucide-react";
 
 import PaletteExtractor from "@/components/PaletteExtractor";
 import GradientGenerator from "@/components/GradientGenerator";
+import GlassMorphism from "@/components/GlassMorphism";
+import ClipPath from "@/components/ClipPath";
 
 export default function Home() {
-    type ToolKey = "palette" | "gradient" | "glassMorphism" | "clippath" | "tts";
+    type ToolKey =
+        | "palette"
+        | "gradient"
+        | "glassMorphism"
+        | "clippath"
+        | "tts";
     const [activeTool, setActiveTool] = useState<ToolKey>("palette");
 
     const tools: Record<
@@ -31,7 +39,24 @@ export default function Home() {
             icon: Palette,
             component: PaletteExtractor,
         },
-        gradient: { id: "gradient", name: "Gradient Generator", icon: Droplets, component: GradientGenerator },
+        gradient: {
+            id: "gradient",
+            name: "Gradient Generator",
+            icon: Droplets,
+            component: GradientGenerator,
+        },
+        glassMorphism: {
+            id: "glassMorphism",
+            name: "Glassmorphism",
+            icon: MoveHorizontal,
+            component: GlassMorphism,
+        },
+        clippath: {
+            id: "clippath",
+            name: "Clip Path Generator",
+            icon: Scissors,
+            component: ClipPath,
+        },
     };
 
     const ActiveComponent = tools[activeTool].component;
