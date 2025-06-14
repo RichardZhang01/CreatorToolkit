@@ -3,7 +3,6 @@
 import { useState } from "react";
 import {
     Palette,
-    Upload,
     Droplets,
     Volume2,
     ChevronsRight,
@@ -11,6 +10,7 @@ import {
 } from "lucide-react";
 
 import PaletteExtractor from "@/components/PaletteExtractor";
+import GradientGenerator from "@/components/GradientGenerator";
 
 export default function Home() {
     type ToolKey = "palette" | "gradient" | "glassMorphism" | "clippath" | "tts";
@@ -31,6 +31,7 @@ export default function Home() {
             icon: Palette,
             component: PaletteExtractor,
         },
+        gradient: { id: "gradient", name: "Gradient Generator", icon: Droplets, component: GradientGenerator },
     };
 
     const ActiveComponent = tools[activeTool].component;

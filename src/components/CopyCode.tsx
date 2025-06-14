@@ -5,7 +5,7 @@ interface CopyTextProps {
     code: string;
 }
 
-const CopyText = ({ code }: CopyTextProps) => {
+const CopyCode = ({ code }: CopyTextProps) => {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
@@ -32,4 +32,4 @@ const CopyText = ({ code }: CopyTextProps) => {
     );
 }
 
-export default CopyText;
+export default CopyCode;
